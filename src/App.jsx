@@ -1,35 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import getEachElement from "./getEachElement";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  let profiles = [
+    {
+      name: "Alice",
+      age: 25,
+      hobbies: ["Reading", "Gardening", "Cooking"],
+      bio: "Alice is a passionate learner who enjoys exploring new technologies.",
+    },
+    {
+      name: "Bob",
+      age: 27,
+      hobbies: ["Playing guitar", "Hiking", "Photography"],
+      bio: "Bob is a creative individual who loves expressing himself through music and capturing moments with his camera.",
+    },
+    {
+      name: "Charlie",
+      age: 23,
+      hobbies: ["Painting", "Writing", "Soccer"],
+      bio: "Charlie is an artist at heart, always seeking inspiration from various forms of art.",
+    },
+    {
+      name: "David",
+      age: 29,
+      hobbies: ["Swimming", "Traveling", "Programming"],
+      bio: "David is an adventurer who is passionate about coding and exploring the world at the same time.",
+    },
+  ];
+  let each_profile = profiles.map(getEachElement);
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="nav">
+        <a href="Home">Home</a>
+        <a href="Our Team">Our Team</a>
+        <a href="Hire Team">Hire Team</a>
+        <input type="text" placeholder="Search profile" />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div className="main">{each_profile}</div>
+
+      <div className="footer">Copywrite@2023</div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
